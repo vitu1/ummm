@@ -31,8 +31,9 @@ class Employees_Name(Resource):
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
-        string = request.values['']
-        print(string)
+        string = request.form.to_dict()
+        for k in string:
+            print(k)
         return request.query_string
 
 
